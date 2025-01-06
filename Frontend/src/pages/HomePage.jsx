@@ -2,17 +2,17 @@ import { Container, VStack, Text, SimpleGrid } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useProductStore } from '../Store/product';
-import ProductCard from '../components/ProductCard';
+import { useMateriaStore } from '../Store/materia';
+import MateriaCard from '../components/MateriaCard';
 
 const HomePage = () => {
-  const { fetchProducts, products } = useProductStore();
+  const { fetchMaterias, materias } = useMateriaStore();
 
   useEffect( ()=>{
-    fetchProducts();
-  }, [fetchProducts] );
+    fetchMaterias();
+  }, [fetchMaterias] );
   
-  console.log("Products:", products);
+  console.log("Materias:", materias);
 
   return (
 		<Container maxW='container.xl' py={12}>
@@ -24,7 +24,7 @@ const HomePage = () => {
 					bgClip={"text"}
 					textAlign={"center"}
 				>
-					Current Products 🚀
+					Materias Actuales 🚀
 				</Text>
 
 				<SimpleGrid
@@ -36,17 +36,17 @@ const HomePage = () => {
 					spacing={10}
 					w={"full"}
 				>
-					{products.map((product) => (
-						<ProductCard key={product._id} product={product} />
+					{materias.map((materia) => (
+						<MateriaCard key={materia._id} materia={materia} />
 					))}
 				</SimpleGrid>
 
-        {products.length === 0 && (
+        {materias.length === 0 && (
 					<Text fontSize='xl' textAlign={"center"} fontWeight='bold' color='gray.500'>
-						No products found 😢{" "}
+						No hay materias en la BBD 😢{" "}
 						<Link to={"/create"}>
 							<Text as='span' color='blue.500' _hover={{ textDecoration: "underline" }}>
-								Create a product
+								Crear materia
 							</Text>
 						</Link>
 					</Text>

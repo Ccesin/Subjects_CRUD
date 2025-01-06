@@ -1,23 +1,29 @@
 import { useState } from 'react';
 import { Container, VStack, Heading, Box, useColorModeValue, Input, Button, useToast } from '@chakra-ui/react';
 
-import { useProductStore } from '../Store/product';
+import { useMateriaStore } from '../Store/materia';
 
 const CreatePage = () => {
-  const [newProduct,  setNewProduct] = useState({
+  const [newMateria,  setNewMateria] = useState({
     name: '',
-    price: '',
+    uc: '',
+    profesor: '',
+    descripcion: '',
+    horario: '',
+    aula: '',
+    prelacion: '',
+    cupomax: '',
     image: ''
   });
 
   const toast = useToast();
 
-  const { createProduct } = useProductStore();
+  const { createMateria } = useMateriaStore();
 
 
-  const handleAddProduct = async()=> {
-    console.log("newProduct useState: "+newProduct);
-    const {success, message} = await createProduct(newProduct);
+  const handleAddMateria = async()=> {
+    console.log("newMateria useState: "+newMateria);
+    const {success, message} = await createMateria(newMateria);
     if (!success) {
       toast({ 
         title: 'Error', 
@@ -28,13 +34,13 @@ const CreatePage = () => {
     }
     else {
       toast({
-        title: 'Product Added',
+        title: 'Materia Added',
         description: message,
         status: 'success',
         isClosable: true
       });
     }
-    setNewProduct ({name:'', price:'', image:''});
+    setNewMateria ({name:'', uc:'', profesor:'', descripcion:'', horario:'', aula:'', prelacion:'', cupomax:'', image:''});
   };
 
   return (
@@ -43,7 +49,7 @@ const CreatePage = () => {
         spacing={8}
       >
         <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={8} >
-          Create New Product
+          Crear una nueva Materia
         </Heading>
 
         <Box
@@ -55,26 +61,62 @@ const CreatePage = () => {
         >
           <VStack spacing={4}>
             <Input 
-              placeholder="Product Name" 
+              placeholder="Nombre" 
               name="name"
-              value={newProduct.name}
-              onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
+              value={newMateria.name}
+              onChange={(e) => setNewMateria({...newMateria, name: e.target.value})}
             />
             <Input 
-              placeholder="Product Price" 
-              name="price"
-              value={newProduct.price}
-              onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}
+              placeholder="Unidades de credito" 
+              name="uc"
+              value={newMateria.uc}
+              onChange={(e) => setNewMateria({...newMateria, uc: e.target.value})}
             />
             <Input 
-              placeholder="Product Image" 
+              placeholder="Profesor" 
+              name="profesor"
+              value={newMateria.profesor}
+              onChange={(e) => setNewMateria({...newMateria, profesor: e.target.value})}
+            />
+            <Input 
+              placeholder="Descripcion" 
+              name="descripcion"
+              value={newMateria.descripcion}
+              onChange={(e) => setNewMateria({...newMateria, descripcion: e.target.value})}
+            />
+            <Input 
+              placeholder="Horario" 
+              name="horario"
+              value={newMateria.horario}
+              onChange={(e) => setNewMateria({...newMateria, horario: e.target.value})}
+            />
+            <Input 
+              placeholder="Aula" 
+              name="aula"
+              value={newMateria.aula}
+              onChange={(e) => setNewMateria({...newMateria, aula: e.target.value})}
+            />
+            <Input 
+              placeholder="Prelacion" 
+              name="prelacion"
+              value={newMateria.prelacion}
+              onChange={(e) => setNewMateria({...newMateria, prelacion: e.target.value})}
+            />
+            <Input 
+              placeholder="Cupo Maximo" 
+              name="cupomax"
+              value={newMateria.cupomax}
+              onChange={(e) => setNewMateria({...newMateria, cupomax: e.target.value})}
+            />
+            <Input 
+              placeholder="Imagen" 
               name="image"
-              value={newProduct.image}
-              onChange={(e) => setNewProduct({...newProduct, image: e.target.value})}
+              value={newMateria.image}
+              onChange={(e) => setNewMateria({...newMateria, image: e.target.value})}
             />
 
-            <Button colorScheme="blue" onClick={handleAddProduct} w="full" >
-              Add Product
+            <Button colorScheme="blue" onClick={handleAddMateria} w="full" >
+              Agregar Materia
             </Button>
           </VStack>
         </Box>

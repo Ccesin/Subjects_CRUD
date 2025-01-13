@@ -98,7 +98,7 @@ const MateriaCard = ({materia}) => {
                 PROFESOR: {materia.profesor}
             </Text>
             <Text fontWeight="" fontSize="l" color={textColor} mb={1} >
-                DESCCRIPCION: {materia.descripcion}
+                DESCRIPCION: {materia.descripcion}
             </Text>
             <Text fontWeight="" fontSize="l" color={textColor} mb={1} >
                 HORARIO: {materia.horario}

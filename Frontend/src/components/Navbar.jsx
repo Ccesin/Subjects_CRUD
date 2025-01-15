@@ -20,14 +20,14 @@ const Navbar = () => {
         }}
       >
         <Text
-          fontSize={{ base: "22", sm: "28" }}
+          fontSize={{ base: "22", sm: "51" }}
           fontWeight={"bold"}
           textTransform={"uppercase"}
           textAlign={"center"}
           bgGradient={"linear(to-r, cyan.400, blue.500)"}
           bgClip={"text"}
         >
-          <Link to={"/"}>MERN-APP</Link>
+          <Link to={"/"}>MERN-FULLSTACK</Link>
         </Text>
         <HStack spacing={2} alignItems={"center"}>
           <Link to={"/create"}>

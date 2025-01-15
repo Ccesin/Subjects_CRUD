@@ -113,7 +113,7 @@ const MateriaCard = ({materia}) => {
                 CUPO MAXIMO: {materia.cupomax}
             </Text>
             <HStack spacing={2} >
-            <IconButton icon={<EditIcon />} onClick={onOpen} colorScheme='blue' />
+            	<IconButton icon={<EditIcon />} onClick={onOpen} colorScheme='blue' />
                 <IconButton icon={<DeleteIcon />} onClick={ ()=> handleDeleteMateria(materia._id) } colorScheme="red" />
             </HStack>
         </Box>

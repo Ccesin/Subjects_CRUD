@@ -60,62 +60,71 @@ const CreatePage = () => {
           shadow={"md"}
         >
           <VStack spacing={4}>
-            <Input 
+            <Input
+              data-testid="cypress-input-name" 
               placeholder="Nombre" 
               name="name"
               value={newMateria.name}
               onChange={(e) => setNewMateria({...newMateria, name: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-uc" 
               placeholder="Unidades de credito" 
               name="uc"
               value={newMateria.uc}
               onChange={(e) => setNewMateria({...newMateria, uc: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-profesor" 
               placeholder="Profesor" 
               name="profesor"
               value={newMateria.profesor}
               onChange={(e) => setNewMateria({...newMateria, profesor: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-descripcion" 
               placeholder="Descripcion" 
               name="descripcion"
               value={newMateria.descripcion}
               onChange={(e) => setNewMateria({...newMateria, descripcion: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-horario" 
               placeholder="Horario" 
               name="horario"
               value={newMateria.horario}
               onChange={(e) => setNewMateria({...newMateria, horario: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-aula" 
               placeholder="Aula" 
               name="aula"
               value={newMateria.aula}
               onChange={(e) => setNewMateria({...newMateria, aula: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-prelacion" 
               placeholder="Prelacion" 
               name="prelacion"
               value={newMateria.prelacion}
               onChange={(e) => setNewMateria({...newMateria, prelacion: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-cupomax" 
               placeholder="Cupo Maximo" 
               name="cupomax"
               value={newMateria.cupomax}
               onChange={(e) => setNewMateria({...newMateria, cupomax: e.target.value})}
             />
-            <Input 
+            <Input
+              data-testid="cypress-input-image" 
               placeholder="Imagen" 
               name="image"
               value={newMateria.image}
               onChange={(e) => setNewMateria({...newMateria, image: e.target.value})}
             />
 
-            <Button colorScheme="blue" onClick={handleAddMateria} w="full" >
+            <Button data-testid="cypress-submit" colorScheme="blue" onClick={handleAddMateria} w="full" >
               Agregar Materia
             </Button>
           </VStack>
